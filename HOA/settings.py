@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    ".chadwickestateshoa.pythonanywhere.com",
+    "chadwickestateshoa.pythonanywhere.com",
+    "www.chadwickestateshoa.pythonanywhere.com"
 ]
 
 EMAIL_HOST = 'smtp.gmail.com'
