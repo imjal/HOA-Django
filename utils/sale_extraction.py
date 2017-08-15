@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
+from urllib.request import Request, urlopen, ProxyHandler, build_opener, install_opener
 import requests
 from invoice.models import Household, Invoice
 
@@ -14,9 +14,11 @@ def list_sale():
 	hdr = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
 		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 	}
-	#req = Request(site,headers=hdr)
-	#page = urlopen(req)
-	page = urllib.request.urlopen(site)
+	proxy = ProxyHandler({'http': 'http://34.196.194.47:80', 'https': 'https://34.196.194.47:80'})
+	opener = build_opener(proxy)
+	install_opener(opener)
+	req = Request(site, None, hdr)
+	page = urlopen(req).read()	
 	soup = BeautifulSoup(page, "lxml")
 
 	all_homes = soup.find_all(class_='IDX-resultsAddress')
