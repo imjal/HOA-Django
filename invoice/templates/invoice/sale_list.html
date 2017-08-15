@@ -11,6 +11,7 @@
         <th>Email</th>
         <th>Phone Number</th>
         <th>Status</th>
+        <th>Agent Email</th>
       </tr>
     </thead>
     <tbody>
@@ -22,8 +23,10 @@
           <td>{{ home.email }}</td>
           <td>{{ home.phone_number}}</td>
           <td>{{ home.status }}</td>
+          <td>{{ home.agent_email_status }}
         </tr>
   {% endfor %}
     </tbody>
  </table>
+ <h4>{{ string }}</h4>
 {% endblock %}

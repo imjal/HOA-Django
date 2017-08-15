@@ -1,0 +1,12 @@
+{% extends 'invoice/base.html'%}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1 class="display-3">Welcome to the Chadwick Estates Directory</h1>
+  <p class="lead">This is page where you can check the residents of Chadwick Estates address, phone number, and email.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'household_list' %}" role="button">Look at Directory</a>
+  </p>
+</div>
+
+{% endblock %}
