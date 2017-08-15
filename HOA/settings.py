@@ -11,6 +11,24 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 import os
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = [
+    '*',
+    "127.0.0.1",
+    "chadwickestateshoa.pythonanywhere.com",
+    "www.chadwickestateshoa.pythonanywhere.com"
+]
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,13 +40,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!b=ks7!ac4!0!w*jc%_3=yuxm3$fd&%_4@bi*vx74o)38#x-ko'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "chadwickestateshoa.pythonanywhere.com",
-    "www.chadwickestateshoa.pythonanywhere.com"
+    
 ]
 
 EMAIL_HOST = 'smtp.gmail.com'
