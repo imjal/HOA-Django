@@ -14,8 +14,9 @@ def list_sale():
 	hdr = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
 		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 	}
-	req = Request(site,headers=hdr)
-	page = urlopen(req)
+	#req = Request(site,headers=hdr)
+	#page = urlopen(req)
+	page = urllib.request.urlopen(site)
 	soup = BeautifulSoup(page, "lxml")
 
 	all_homes = soup.find_all(class_='IDX-resultsAddress')
