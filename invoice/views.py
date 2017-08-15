@@ -4,7 +4,7 @@ from .models import Household, Invoice
 from django.http import HttpResponseRedirect
 from .forms import UploadFileForm, EmailInvoiceForm, InvoiceForm, HouseholdForm, AgentEmailForm
 from django.core.mail import send_mail
-from utils.sale_extraction import list_sale, compare2List, send_agent_email
+from utils.sale_extraction import list_sale, send_agent_email
 
 # Create your views here.
 
