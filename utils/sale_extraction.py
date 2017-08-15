@@ -14,11 +14,15 @@ def list_sale():
 	hdr = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
 		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
 	}
+	"""
 	proxy = ProxyHandler({'http': 'http://47.52.24.117:80', 'https': 'https://198.35.55.147:443'})
 	opener = build_opener(proxy)
 	install_opener(opener)
 	req = Request(site, None, hdr)
 	page = urlopen(req).read()	
+	"""
+	req = Request(site, None, hdr)
+	page = urlopen(req)
 	soup = BeautifulSoup(page, "lxml")
 
 	all_homes = soup.find_all(class_='IDX-resultsAddress')
