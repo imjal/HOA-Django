@@ -11,7 +11,9 @@ from invoice.models import Household, Invoice
 """
 def list_sale():
 	site= "http://markmonge.idxbroker.com/i/ChadwickEstates"
-	hdr = {'User-Agent': 'Mozilla/5.0'}
+	hdr = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36',
+		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+	}
 	req = Request(site,headers=hdr)
 	page = urlopen(req)
 	soup = BeautifulSoup(page, "lxml")
